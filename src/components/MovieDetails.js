@@ -7,7 +7,7 @@ const KEY = "5fdc2a2";
 
 function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [, setError] = useState("");
   const [movie, setMovie] = useState({});
   const [userRating, setUserRating] = useState("");
 
@@ -66,6 +66,18 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     [selectedId]
   );
 
+  useEffect(
+    function () {
+      if (!title) return;
+      document.title = `MOVIE | ${title}`;
+
+      return function () {
+        document.title = "usePopcorn";
+      };
+    },
+    [title]
+  );
+
   return (
     <div className="details">
       {isLoading ? (
@@ -102,7 +114,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
                   />
                   {userRating > 0 && (
                     <button className="btn-add" onClick={handleAdd}>
-                      + Add to list
+                      + Add to watched
                     </button>
                   )}
                 </>

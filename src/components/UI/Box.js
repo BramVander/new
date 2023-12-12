@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function Box({ children }) {
   const [isOpen, setIsOpen] = useState(true);
