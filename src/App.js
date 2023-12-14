@@ -69,7 +69,7 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("Look for a movie");
-  const [query, setQuery] = useState("interstellar");
+  const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
   function handleSelectMovie(id) {
@@ -126,6 +126,7 @@ export default function App() {
         return;
       }
 
+      handleCloseMovie();
       fetchMovies();
 
       return function () {
@@ -133,7 +134,7 @@ export default function App() {
       };
     },
     [query]
-  ); // [] dependency array takes in all state + prop variables
+  );
 
   return (
     <>
