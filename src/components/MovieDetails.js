@@ -6,10 +6,10 @@ import Loader from "./UI/Loader";
 const KEY = "5fdc2a2";
 
 function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
-  const [isLoading, setIsLoading] = useState(false);
-  const [, setError] = useState("");
   const [movie, setMovie] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState("");
+  const [, setError] = useState("");
 
   const isWatched = watched.map((movie) => movie.imdbId).includes(selectedId);
   const watchedUserRating = watched.find(
